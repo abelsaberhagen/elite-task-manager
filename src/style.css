@@ -1,3 +1,25 @@
 body {
-    color:rgb(66, 167, 245)
+    background-color: blue;
+    text-align:centers
 }
+
+.column {
+    display: flex;
+    background-color:rgb(66, 167, 245);
+    color: white;
+    padding: 20px;
+    height: 700px;
+    width: 300px;
+    border-width: 15px black;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 25px;
+    
+    
+}
+
+#column-collection {
+    margin-top: 100px;
+    column-count: 4;
+    column-gap: 50px;
+}
+    
