@@ -2,12 +2,12 @@ console.log("Hello World!");
 
 let body = document.getElementById("body");
 let addTaskButton = document.getElementById("addTaskButton");
-let taskCollections = document.getElementById("collection-tasks")
+let taskCollections = document.getElementById("collection-tasks");
 
 addTaskButton.addEventListener('click',function() {
-    this.div = document.createElement( "div" ) ;
-    this.div.className = "task";
-	document.taskCollections.appendChild( this.div ) ;
+    let newTask = document.createElement( "div" ) ;
+    newTask.className = "task";
+	document.taskCollections.appendChild( newTask ) ;
 })
 
 
