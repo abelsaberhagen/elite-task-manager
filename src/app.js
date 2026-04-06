@@ -1,4 +1,7 @@
-let body = document.getElementById("body")
+console.log("Hello World!");
+
+let body = document.getElementById("body");
+let addTaskButton = document.getElementById("addTaskButton");
 
 DivObject = function() {
 	    this.div = document.createElement( "div" ) ;
