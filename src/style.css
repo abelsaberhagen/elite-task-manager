@@ -20,9 +20,15 @@ body {
 
 }
 
-#column-collection {
+.collections {
     margin-top: 100px;
     column-count: 4;
     column-gap: 50px;
+}
+
+.task {
+    background-color:rgb(245, 129, 66);
+    width: 200px;
+    height: 100px;
 }
     
