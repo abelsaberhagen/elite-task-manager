@@ -15,7 +15,7 @@ body {
     border-radius: 25px;
     
 }
-.column:drag-active-hover {
+.column.drag-active-hover {
     opacity: 0.8;
 
 }
@@ -30,5 +30,8 @@ body {
     background-color:rgb(245, 129, 66);
     width: 200px;
     height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
 }
     
