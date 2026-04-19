@@ -3,7 +3,9 @@ console.log("Hello World!");
 let body = document.querySelector("body");
 let addTaskButton = document.querySelector("#addTaskButton");
 let taskCollections = document.querySelector("#collection-tasks");
-let column = document.querySelector(".column");
+let columns = document.querySelectorAll(".column");
+let draggedTask = null;
+let isDragging = false;
 
 addTaskButton.addEventListener('click',function() {
     let newTask = document.createElement( "div" ) ;
@@ -11,24 +13,44 @@ addTaskButton.addEventListener('click',function() {
     newTask.innerText = "Task";
     newTask.draggable = true;
     newTask.addEventListener("dragstart", dragstartHandler);
+
 	taskCollections.appendChild( newTask ) ;
 })
 
 function dragstartHandler(ev) {
     //ev.dataTransfer.items.add(ev.column.innerText, "text/plain");
-    ev.dataTransfer.setData("text/html", ev.target.outerHTML);
+    console.log(ev.target.outerHTML);
+    draggedTask = ev.target;
+    console.log("drag started");
 }
 
-foreach =>
-column.addEventListener("dragover", (ev) => {
-    ev.preventDefault();
-})
 
-column.addEventListener("drop", (ev) => {
+columns.forEach((column) => {
+    column.addEventListener("dragover", (ev) => {
     ev.preventDefault();
-    const data = ev.dataTransfer.getData("text/plain");
-    ev.column.append(data);
-})
+    console.log("drag over");
+    
+    
+
+    column.addEventListener("mouseenter", () => {
+        if (draggedTask != null) {
+            column.classList.add("drag-active-hover");
+        }
+    });
+    column.addEventListener("mouseleave", () => {
+        if (draggedTask == null) {
+            column.classList.remove("drag-active-hover");
+        }
+    });
+    
+    column.addEventListener("drop", (ev) => {
+    ev.preventDefault();
+    ev.target.appendChild(draggedTask);
+    draggedTask = null;
+    });
+
+    
+});
 
 
 const task = {name:"task 1", title:"Task1"}

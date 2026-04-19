@@ -4,7 +4,7 @@ body {
 }
 
 .column {
-    display: flex;
+    
     background-color:rgb(66, 167, 245);
     color: white;
     padding: 20px;
@@ -15,7 +15,7 @@ body {
     border-radius: 25px;
     
 }
-.column:hover {
+.column:drag-active-hover {
     opacity: 0.8;
 
 }
