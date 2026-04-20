@@ -12,46 +12,53 @@ const colors = ["pink", "orange", "yellow", "green", "purple"];
 addTaskButton.addEventListener('click',function() {
     let textbox = document.createElement("textarea");
     textbox.type = "text";
+    textbox.classList.add("orange");
 
     let penImg = document.createElement("img");
     penImg.src = "pen.png";
-    let editButton = document.createElement("button");
-    editButton.appendChild(penImg);
+    let trashButton = document.createElement("button");
+    trashButton.id = "trash"
+    trashButton.appendChild(penImg);
 
     let newTask = document.createElement( "div" ) ;
     newTask.className = "task";
     newTask.innerText = "Task";
     newTask.draggable = true;
-    newTask.appendChild(editButton);
+    newTask.classList.add("orange"); 
+    newTask.appendChild(trashButton);
     newTask.appendChild(textbox);
 
-    editButton.addEventListener("click", editButtonPress(newTask));
+    showColorButtons(newTask, textbox);
+
+    trashButton.addEventListener("click", () => {newTask.remove()});
     newTask.addEventListener("dragstart", dragstartHandler);
 
 	taskCollections.appendChild( newTask ) ;
 })
 
-function editButtonPress(task) {
+
+function showColorButtons(task, textBox) {
     let colorButtonCollection = document.createElement("div");
     for (let i = 0; i < 5; i++) {
         let button = document.createElement("button"); 
         button.classList.add(colors[i]);
-        button.addEventListener("click", () => {changeColorOfTask(task, colors[i])});
+        button.addEventListener("click", () => {changeColorOfTask(task, textBox, colors[i])});
         colorButtonCollection.appendChild(button);
     }
     task.appendChild(colorButtonCollection);
     
 }
 
-function changeColorOfTask(task, colorClass) {
+function changeColorOfTask(task, textBox, colorClass) {
     for (let i = 0; i < 5; i++) {
         task.classList.remove(colors[i]);
+        textBox.classList.remove(colors[i]);
     }
     task.classList.add(colorClass); 
+    textBox.classList.add(colorClass);
 }
 
 function dragstartHandler(ev) {
-    //ev.dataTransfer.items.add(ev.column.innerText, "text/plain");
     console.log(ev.currentTarget.outerHTML);
     draggedTask = ev.currentTarget;
     isDragging = true;

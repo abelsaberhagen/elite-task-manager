@@ -32,7 +32,7 @@ body {
 }
 
 .task {
-    background-color:rgb(245, 129, 66);
+    color: black;
     width: 200px;
     height: 100px;
     margin: 10px;
@@ -46,27 +46,69 @@ img {
 
 }
 
+#trash {
+    width: 20px;
+    margin-left: 150px;
+
+}
+
 button:hover {
     opacity: 0.8;
+}
+
+textarea {
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+textarea.pink {
+    background-color: rgb(216, 88, 146);
+    border-color: rgb(193, 79, 130);
+}
+
+textarea.orange {
+    background-color: rgb(211, 110, 55);
+    border-color: rgb(188, 98, 49);
+}
+
+textarea.yellow {
+    background-color: rgb(203, 201, 95);
+    border-color: rgb(174, 173, 81);
+}
+
+textarea.green {
+    background-color: rgb(89, 199, 118);
+    border-color: rgb(79, 176, 105)
+}
+
+textarea.purple {
+    background-color: rgb(189, 126, 226);
+    border-color: rgb(169, 112, 201);
 }
     
 .pink {
     background-color: rgb(247, 101, 167);
+    border-color: rgb(180, 75, 122);
 }
 
 .orange {
     background-color:rgb(245, 129, 66);
+    border-color:rgb(197, 104, 54);
 }
 
 .yellow {
     background-color: rgb(240, 238, 113);
+    border-color: rgb(193, 192, 90);
 }
 
 .green {
     background-color: rgb(100, 222, 132);
+    border-color:rgb(76, 168, 100);
 }
 
 .purple {
     background-color: rgb(210, 140, 250);
+    border-color: rgb(155, 103, 185);
 }
 
