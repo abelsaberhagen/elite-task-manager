@@ -1,80 +1,89 @@
 h1 {
-    text-align:center;
+    text-align: center;
 }
 
 #addTaskButton {
     background-color: rgb(105, 105, 247);
     border-color: rgb(66, 66, 224);
-    color: white;
     border-radius: 20px;
+    color: white;
 }
 
 body {
     background-color: blue;
-    height:auto;
+    height: auto;
 }
 
-#collection-tasks{
-    font-family:Arial, Helvetica, sans-serif;
-
+#collection-tasks {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .column {
-    
-    background-color:rgb(66, 167, 245);
-    color: white;
-    padding: 20px;
-    /*height: 700px;*/
-    height:auto;
-    min-height: 700px;
-    width: 300px;
-    border-width: 15px black;
-    font-family:Arial, Helvetica, sans-serif;
+    background-color: rgb(66, 167, 245);
     border-radius: 25px;
-    
+    border-width: 15px black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    /*height: 700px;*/
+    height: auto;
+    min-height: 700px;
+    padding: 20px;
+    width: 300px;
 }
+
 .column.drag-active-hover {
     opacity: 0.8;
-
 }
 
 .collections {
-    margin-top: 100px;
     column-count: 4;
     column-gap: 50px;
+    margin-top: 100px;
 }
 
 .task {
+    border-radius: 10px;
     color: black;
-    width: 200px;
     height: auto;
     margin: 10px;
     padding: 10px;
-    border-radius: 10px;
+    width: 200px;
 }
 
 img {
     align-self: left;
     width: 15%;
-
 }
 
 #trash {
     width: 20px;
-    margin-left: 150px;
-
 }
 
 button:hover {
     opacity: 0.8;
 }
 
+#taskHeader {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#taskTitle {
+    max-height: 15px;
+    max-width: 150px;
+    min-height: 15px;
+    min-width: 150px;
+}
+
+#taskText {
+    max-width: 175px;
+    min-width: 175px;
+}
+
 textarea {
     border-radius: 10px;
     padding: 5px;
-    max-width: 175px;
-    min-width: 175px;
-
 }
 
 textarea.pink {
@@ -94,22 +103,22 @@ textarea.yellow {
 
 textarea.green {
     background-color: rgb(89, 199, 118);
-    border-color: rgb(79, 176, 105)
+    border-color: rgb(79, 176, 105);
 }
 
 textarea.purple {
     background-color: rgb(189, 126, 226);
     border-color: rgb(169, 112, 201);
 }
-    
+
 .pink {
     background-color: rgb(247, 101, 167);
     border-color: rgb(180, 75, 122);
 }
 
 .orange {
-    background-color:rgb(245, 129, 66);
-    border-color:rgb(197, 104, 54);
+    background-color: rgb(245, 129, 66);
+    border-color: rgb(197, 104, 54);
 }
 
 .yellow {
@@ -119,11 +128,10 @@ textarea.purple {
 
 .green {
     background-color: rgb(100, 222, 132);
-    border-color:rgb(76, 168, 100);
+    border-color: rgb(76, 168, 100);
 }
 
 .purple {
     background-color: rgb(210, 140, 250);
     border-color: rgb(155, 103, 185);
 }
-

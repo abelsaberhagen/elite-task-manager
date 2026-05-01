@@ -10,24 +10,34 @@ const colors: string[] = ["pink", "orange", "yellow", "green", "purple"];
 
 
 addTaskButton.addEventListener('click', function() {
-    const textbox = document.createElement("textarea");
-    textbox.classList.add("orange");
 
-    const penImg = document.createElement("img");
-    penImg.src = "pen.png";
+    const taskTitle = document.createElement("textarea");
+    taskTitle.id = "taskTitle"
+    taskTitle.classList.add("orange");
+    taskTitle.innerText = "Task";
+    // const penImg = document.createElement("img");
+    // penImg.src = "pen.png";
     const trashButton = document.createElement("button");
     trashButton.id = "trash";
-    trashButton.appendChild(penImg);
+
+    const taskHeader = document.createElement("div");
+    taskHeader.id = "taskHeader"
+    taskHeader.appendChild(taskTitle);
+    taskHeader.appendChild(trashButton);
+
+    const textbox = document.createElement("textarea");
+    textbox.classList.add("orange");
+    textbox.id = "taskText";
 
     const newTask = document.createElement("div");
     newTask.className = "task";
-    newTask.innerText = "Task";
+    //newTask.innerText = "Task";
     newTask.draggable = true;
     newTask.classList.add("orange");
-    newTask.appendChild(trashButton);
+    newTask.appendChild(taskHeader);
     newTask.appendChild(textbox);
 
-    showColorButtons(newTask, textbox);
+    showColorButtons(newTask, textbox, taskTitle);
 
     trashButton.addEventListener("click", () => { newTask.remove(); });
     newTask.addEventListener("dragstart", dragstartHandler);
@@ -36,24 +46,26 @@ addTaskButton.addEventListener('click', function() {
 });
 
 
-function showColorButtons(task: HTMLElement, textBox: HTMLTextAreaElement): void {
+function showColorButtons(task: HTMLElement, textBox: HTMLTextAreaElement, taskTitle: HTMLTextAreaElement): void {
     const colorButtonCollection = document.createElement("div");
     for (let i = 0; i < 5; i++) {
         const button = document.createElement("button");
         button.classList.add(colors[i]);
-        button.addEventListener("click", () => { changeColorOfTask(task, textBox, colors[i]); });
+        button.addEventListener("click", () => { changeColorOfTask(task, textBox, taskTitle, colors[i]); });
         colorButtonCollection.appendChild(button);
     }
     task.appendChild(colorButtonCollection);
 }
 
-function changeColorOfTask(task: HTMLElement, textBox: HTMLTextAreaElement, colorClass: string): void {
+function changeColorOfTask(task: HTMLElement, textBox: HTMLTextAreaElement, taskTitle: HTMLTextAreaElement, colorClass: string): void {
     for (let i = 0; i < 5; i++) {
         task.classList.remove(colors[i]);
         textBox.classList.remove(colors[i]);
+        taskTitle.classList.remove(colors[i]);
     }
     task.classList.add(colorClass);
     textBox.classList.add(colorClass);
+    taskTitle.classList.add(colorClass);
 }
 
 function dragstartHandler(ev: DragEvent): void {
